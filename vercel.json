@@ -3,5 +3,5 @@
     "env": {},
     "useSourceBuildCache": false
   },
-  "outputDirectory": ".next"
+  "outputDirectory": "public"
 }
