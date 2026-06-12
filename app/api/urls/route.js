@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { v4 as uuidv4 } from 'uuid';
+import id from 'short-id';
 import dbConnect from '@/lib/mongoose';
 import Url from '@/models/Url';
 import { getUserFromCookie } from '@/lib/auth';
@@ -18,7 +18,7 @@ export async function POST(req) {
       return NextResponse.json({ message: 'URL is required' }, { status: 400 });
     }
 
-    const shortId = uuidv4().split('-')[0];
+    const shortId = id.generate();
 
     await dbConnect();
     const newUrl = await Url.create({
